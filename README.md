@@ -21,6 +21,8 @@ This [Astro](https://astro.build/) app provides real-time weather updates for di
 - **Live Weather Data:** Display up-to-date weather information for selected location. 
 
 ## Frontend Technologies Used
+![FE-Technologies](https://github.com/user-attachments/assets/dc076fe5-1205-43a9-9292-9882714ff671)
+
 > **Framework**: `Astro`<br>
  **Programming Language**: `JavaScript`<br>
  **Code Structure and Style**: `HTML5` (*Markup Language*), `CSS3` (*StyleSheet Language*)<br>
