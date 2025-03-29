@@ -1,0 +1,27 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+  
+img,
+picture,
+video {
+    max-width: 100%;
+}
+
+/* Main */
+body {
+    position: relative;
+    background-color: white;
+    letter-spacing: 0.4px;
+    overflow-x: hidden;
+    color: #212529;
+}
+  
+section {
+    position: relative;
+    padding: 0 20px;
+}
