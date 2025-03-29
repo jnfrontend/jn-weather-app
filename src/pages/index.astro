@@ -3,13 +3,19 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
 <BaseLayout>
-	<div id="headline">
-		<h1>Welcome to my web application</h1>
-		<h3>Get real-time weather updates for location of your choice with this astro app.</h3>
-	</div>
-	<div class="cta_container">
-		<a href="">Get Started</a>
-	</div>
+	<div class="container-fluid">
+		<div class="row align-items-start">
+		  <div class="col">
+			<div id="headline">
+				<h1>Welcome to my web application</h1>
+				<h3>Get real-time weather updates for location of your choice with this astro app.</h3>
+			</div>
+			<div class="cta_container">
+				<a href="">Get Started</a>
+			</div>
+		  </div>
+		</div>
+	  </div>
 </BaseLayout>
 
 <style>
