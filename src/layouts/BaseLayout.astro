@@ -2,7 +2,8 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../assets/css/global.css";
 
-import Header from "../components/Header.astro"
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 console.log(Astro.url);
 const { pathname } = Astro.url;
@@ -24,9 +25,7 @@ const { pathname } = Astro.url;
 				<slot /> <!-- This <slot /> will be use in index.astro -->
 			</section>
 		</main>
-		<footer>
-			© 2025 JN Weather App, all rights reserved.
-		</footer>
+		<Footer/>
 	</body>
 </html>
 
