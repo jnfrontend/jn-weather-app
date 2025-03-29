@@ -19,9 +19,14 @@ body {
     letter-spacing: 0.4px;
     overflow-x: hidden;
     color: #212529;
+    padding: 20px;
 }
-  
+
+main,
+nav {
+    background-image: linear-gradient(to right, #f8f8f9, #f5f5f6, #f2f2f3, #efeef0, #ecebed);
+}
+
 section {
     position: relative;
-    padding: 0 20px;
 }
