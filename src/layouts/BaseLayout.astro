@@ -1,0 +1,42 @@
+---
+console.log(Astro.url);
+const { pathname } = Astro.url;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>JN - Weather App</title>
+	</head>
+	<body>
+		<header>
+			<nav>
+				<ul>
+					<li>Home</li>
+					<li>Features Page</li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<section>
+				<slot /> <!-- This <slot /> will be use in index.astro -->
+			</section>
+		</main>
+		<footer>
+			© 2025 JN Weather App, all rights reserved.
+		</footer>
+	</body>
+</html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+	}
+</style>
