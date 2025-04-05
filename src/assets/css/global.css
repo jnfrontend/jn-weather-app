@@ -134,7 +134,11 @@ section {
     opacity: 1;
 }
 
-
+.search_city_container input::placeholder {
+    letter-spacing: .4px;
+    color: #787777;
+    font-size: 16px;
+}
 
 footer a {
     color: #212529;
@@ -202,4 +206,14 @@ html:after {
     justify-content: center;
     position: absolute;
     bottom: -24px;
+}
+
+.btn-white {
+    background-color: white !important;
+    transition: .25s ease;
+}
+
+.btn-white:hover {
+    transition: .35s ease .2s;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 }
