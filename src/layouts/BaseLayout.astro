@@ -1,0 +1,42 @@
+---
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../assets/css/global.css";
+
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+console.log(Astro.url);
+const { pathname } = Astro.url;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>JN - Weather App</title>
+
+		<!-- Google Fonts -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<Header/>
+		<main class="px-2 rounded-4 rounded-top-0">
+			<section id="content">
+				<slot /> <!-- This <slot /> will be use in index.astro -->
+			</section>
+		</main>
+		<Footer/>
+	</body>
+</html>
+
+<style>
+</style>
+
+<script>
+	import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+</script>

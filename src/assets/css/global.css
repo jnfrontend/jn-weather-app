@@ -1,0 +1,205 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+  
+img,
+picture,
+video {
+    max-width: 100%;
+}
+
+.h-60vh {
+    height: 60vh;
+}
+
+/* Fonts */
+h1 {
+    font-family: "Inter", sans-serif;
+}
+
+.small, small {
+    font-size: .950em;
+}
+
+nav ul li a {
+    font-family: "Montserrat", sans-serif;
+}
+
+.headline p {
+    font-family: "Lato", sans-serif;
+}
+
+html {
+    background-color: #D1D6DE;
+}
+
+/* Main */
+body {
+    position: relative;
+    background-color: white;
+    letter-spacing: 0.4px;
+    overflow-x: hidden;
+    color: #212529;
+    border-radius: 20px;
+    margin: 50px auto 30px auto;
+    max-width: 1410px;
+    box-shadow: -40px 60px 150px rgb(0, 0, 0, 0.25);
+    padding: 12px;
+}
+
+main,
+nav {
+    background-image: linear-gradient(to right, #f8f8f9, #f5f5f6, #f2f2f3, #efeef0, #ecebed);
+}
+
+nav .navbar-brand {
+    letter-spacing: -.3px;
+}
+
+nav .navbar-brand svg {
+    transform: translateY(-1px);
+    margin-right: 4px;
+    width: 34px;
+}
+
+
+
+nav a.nav-link {
+    position: relative;
+    font-weight: 500;
+}
+
+nav a.nav-link:after {
+    content: "";
+    position: absolute;
+    width: 85%;
+    height: 3px;
+    background-color: transparent;
+    left: 0;
+    right: 0;
+    bottom : 5px;
+    margin: 0 auto;
+}
+
+nav .nav-link.active {
+    font-weight: bold;
+}
+
+nav a.nav-link.active:after {
+    background-color: black;
+}
+
+nav .location-link svg {
+    width: 26px;
+}
+
+
+section {
+    position: relative;
+}
+
+.cta_container .btn {
+    letter-spacing: .65px;
+    width: fit-content;
+    min-width: 135px;
+}
+
+.cta_container .btn .btn-text {
+    transition: .25s ease;
+    transform: translateX(8px);
+}
+
+.cta_container .btn .arrow-icon {
+    transition: .25s ease 0.05;
+    background-image: url('/images/arrow-icon.svg');
+    width: 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transform: translateX(0px);
+}
+
+.cta_container .btn:hover .btn-text {
+    transition: .35s ease .2s;
+    transform: translateX(0px);
+}
+
+.cta_container .btn:hover .arrow-icon {
+    transition: .35s ease .2s;
+    transform: translateX(8px);
+    opacity: 1;
+}
+
+
+
+footer a {
+    color: #212529;
+    text-decoration: none;
+    width: fit-content;
+}
+
+footer a span {
+    transition: .25s ease;
+}
+
+footer a span:before {
+    content: "";
+    position: absolute;
+    width: 25%;
+    height: 2px;
+    background-color: black;
+    transition: .25s ease;
+    opacity: 0;
+    bottom: -5px;
+}
+
+footer a span:hover:before {
+    background-color: 1px solid black;
+    transition: .35s ease .2s;
+    width: 100%;
+    opacity: 1;
+}
+
+footer img {
+    transform: translateX(-8px);
+}
+
+
+html {
+    padding-bottom: 60px;
+}
+html:before {
+    position: absolute;
+    content: "Designed® and Built by JN";
+    white-space: pre-wrap;
+    font-family: "Inter", sans-serif;
+    letter-spacing: .3px;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #3B3F46;
+    bottom: -10px;
+}
+
+html:after {
+    content: "©2025 all rights reserved";
+    white-space: pre-wrap;
+    font-family: "Inter", sans-serif;
+    color: #3B3F46;
+    letter-spacing: .3px;
+    font-size: 10px;
+    font-weight: 500;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: -24px;
+}
