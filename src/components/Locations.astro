@@ -9,8 +9,8 @@
             </div>
             <hr class="mt-5 mb-5">
             <div class="col-12 mt-4">
-                <ul class="list-group list-group-horizontal justify-content-center text-center">
-                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0">
+                <ul id="locations_list" class="list-group list-group-horizontal justify-content-center text-center">
+                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0" data-country-code="uk">
                         <div class="location_flag">
                             <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
@@ -36,7 +36,7 @@
                             </span>
                         </div>
                     </li>
-                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0">
+                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0" data-country-code="ie">
                         <div class="location_flag">
                             <span class="icon">                                
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
@@ -52,7 +52,7 @@
                             </span>
                         </div>
                     </li>
-                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0">
+                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0" data-country-code="pl">
                         <div class="location_flag">
                             <span class="icon">                                
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
@@ -67,7 +67,7 @@
                             </span>
                         </div>
                     </li>
-                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0">
+                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0" data-country-code="fr">
                         <div class="location_flag">
                             <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
@@ -83,7 +83,7 @@
                             </span>
                         </div>
                     </li>
-                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0">
+                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0" data-country-code="it">
                         <div class="location_flag">
                             <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
@@ -132,11 +132,5 @@ body.openLocations #locations {
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () { 
-        const locationsTrigger = document.getElementById("locations_trigger");
-
-        locationsTrigger.addEventListener("click", function() {
-            document.body.classList.toggle("openLocations");
-        });
-    });
+    import '../components/js/locations.js';
 </script>
