@@ -226,3 +226,8 @@ body.openLocations [data-anim="fadeout"] {
     opacity: 0 !important;
     transition: .20s ease .1s;
 }
+
+input[type=search]::-webkit-search-cancel-button, 
+input[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none !important;
+}

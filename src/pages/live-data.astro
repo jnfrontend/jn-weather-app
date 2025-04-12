@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import '../components/css/live-data.css';
 ---
 
 <BaseLayout>
@@ -10,8 +11,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				<h1 class="display-1 fw-bolder">Feature Page</h1>
 				<p class="fs-4 fw-normal mt-4 w-75"><em>Lorem ipsum dolor sit amet consecto elit, sed do eiusmod tempor selor.</em></p>
 			</div>
-			<div class="search_city_container mt-4">
-                <input type="search" class="btn btn-white px-5 py-3 fs-5 mt-5 fw-medium d-flex rounded-pill text-start" placeholder="Type city name...">
+			<div class="search_city_container position-relative mt-4">
+                <input type="search" id="searchWeatherByCityName" class="btn btn-white py-4 fs-5 mt-5 fw-medium d-flex rounded-pill text-start" placeholder="Type city name...">
+				<button id="searchWeatherAction" class="position-absolute rounded-circle border-0"></button>
 			</div>
 		  </div>
           <div class="col-md-6 col-lg-6">
@@ -20,3 +22,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		</div>
 	  </div>
 </BaseLayout>
+
+<script>
+	import '../components/js/live-data.js';
+</script>
