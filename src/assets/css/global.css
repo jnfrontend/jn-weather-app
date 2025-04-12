@@ -217,3 +217,12 @@ html:after {
     transition: .35s ease .2s;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
 }
+
+[data-anim="fadeout"] {
+    transition: .20s ease .2s;
+}
+
+body.openLocations [data-anim="fadeout"] {
+    opacity: 0 !important;
+    transition: .20s ease .1s;
+}
