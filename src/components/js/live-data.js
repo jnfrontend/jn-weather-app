@@ -1,6 +1,9 @@
+import { OPEN_WEATHER_API_KEY } from "astro:env/client";
+import { OPEN_WEATHER_API_URL } from "astro:env/client";
+
 document.addEventListener("DOMContentLoaded",() => { 
-    const API_KEY = "open_weather_api_key_here"; // Use api key from https://openweathermap.org/
-	const API_URL = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+    const API_KEY = OPEN_WEATHER_API_KEY;
+	const API_URL = OPEN_WEATHER_API_URL;
 
 	const weatherSearchBar = document.getElementById('searchWeatherByCityName');
 	const weatherSearchButton = document.getElementById('searchWeatherAction');
