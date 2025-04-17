@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () { 
+    let locationNameHeadline = document.getElementById("location_name");
     const locationsTrigger = document.getElementById("locations_trigger"); // Button to open locations modal
     const locationsList = document.querySelectorAll("#locations_list li"); // List of countrys/locations
 
@@ -25,6 +26,11 @@ document.addEventListener("DOMContentLoaded", function () {
                 locationName: _thisLocationName
             };
 
+            // Update location headline with selected location
+            if (locationNameHeadline) {
+                locationNameHeadline.innerHTML = _thisLocationName;
+            }
+            
             // Highlight selected location
             locationsList.forEach(li => li.classList.remove("selected_location"));
             locationItem.classList.add("selected_location");
@@ -35,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Keep highlight class for selected location on page reload
+    // Keep location headline text and highlight class for selected location on page reload
     const savedLocationData = JSON.parse(localStorage.getItem("selectedLocation")); // Read localStorage data "selectedLocation"
     console.log('savedLocationData is: ', savedLocationData);
     if (savedLocationData) {
@@ -43,6 +49,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const matchingSavedLocation = Array.from(locationsList).find(li => li.getAttribute("data-country-code") === savedLocationData.countryCode); // Match locations list <li> data-country-code with saved location data -> (countryCode) 
         if (matchingSavedLocation) {
             matchingSavedLocation.classList.add("selected_location");
+            // Update location headline with selected location
+            if (locationNameHeadline) { 
+                locationNameHeadline.innerHTML = savedLocationData.locationName;
+            }
         }
     }
 });
