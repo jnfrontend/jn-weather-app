@@ -1,6 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () { 
     const locationsTrigger = document.getElementById("locations_trigger"); // Button to open locations modal
-    const locationsList = document.querySelectorAll("#locations_list li"); // List of country/locations
+    const locationsList = document.querySelectorAll("#locations_list li"); // List of countrys/locations
+
+    // If location hasn't been selected, set default location for Ireland
+    if (!localStorage.getItem("selectedLocation")) {
+        const defaultLocationData = {
+            countryCode: "ie",
+            locationName: "Ireland"
+        };
+        localStorage.setItem("selectedLocation", JSON.stringify(defaultLocationData));
+    }
 
     locationsTrigger.addEventListener("click", function() {
         document.body.classList.toggle("openLocations"); // Show/Hide modal with country/locations
@@ -9,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     locationsList.forEach(locationItem => {
         locationItem.addEventListener("click", () => {
             const _thisCountryCode = locationItem.getAttribute("data-country-code"); // Country codes: uk, ie, pl, fr, it
-            const _thisLocationName = locationItem.getAttribute("data-location-name"); // Country name: England, Ireland, Poland, France, Italy
+            const _thisLocationName = locationItem.getAttribute("data-location-name"); // Country names: England, Ireland, Poland, France, Italy
 
             const selectedLocationData = {
                 countryCode: _thisCountryCode,
