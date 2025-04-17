@@ -11,7 +11,20 @@ document.addEventListener("DOMContentLoaded",() => {
 
     // Function to fetch weather data
 	async function fetchWeather(cityName) {
-		const response = await fetch(API_URL + cityName + ',' + 'ie' + `&appid=${API_KEY}`);
+        let countryCode = "";
+  
+        /* 
+        ** Get location/country-code from localStorage
+        ** - Cookie has been set in locations.js
+        */
+        const savedLocationData = JSON.parse(localStorage.getItem("selectedLocation"));
+        if (savedLocationData) {
+            countryCode = savedLocationData.countryCode;
+        } else {
+            countryCode = "ie";
+        }
+
+		const response = await fetch(API_URL + cityName + ',' + countryCode + `&appid=${API_KEY}`);
 		if (!response.ok) {
           throw new Error(`HTTP error: ${response.status}`);
         }
@@ -23,13 +36,13 @@ document.addEventListener("DOMContentLoaded",() => {
         document.querySelector(".weather_card_temp").innerHTML = Math.round(weatherData.main.temp) + "<span>&deg;C</span>" ;
 
         // Display weather icon
-        if(weatherData.weather[0].description == "clear sky") {
+        if(weatherData.weather[0].main == "Clear") {
             weatherCardIcon.src = "images/weather-icons/clear.png";
         } else if(weatherData.weather[0].main == "Clouds") {
             weatherCardIcon.src = "images/weather-icons/clouds.png";
         } else if(weatherData.weather[0].description == "shower rain") {
             weatherCardIcon.src = "images/weather-icons/shower_rain.png";
-        } else if(weatherData.weather[0].description == "rain") {
+        } else if(weatherData.weather[0].main == "Rain") {
             weatherCardIcon.src = "images/weather-icons/drizzle.png";
         } else if(weatherData.weather[0].description == "thunderstorm") {
             weatherCardIcon.src = "images/weather-icons/thunderstorm.png";
