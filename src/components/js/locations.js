@@ -14,7 +14,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const selectedLocationData = {
                 countryCode: _thisCountryCode,
                 locationName: _thisLocationName
-              };
+            };
+
+            // Highlight selected location
+            locationsList.forEach(li => li.classList.remove("selected_location"));
+            locationItem.classList.add("selected_location");
 
             // Save selected country code and location name as JSON in localStorage
             localStorage.setItem("selectedLocation", JSON.stringify(selectedLocationData));
