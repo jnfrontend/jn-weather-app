@@ -9,10 +9,16 @@ document.addEventListener("DOMContentLoaded", function () {
     locationsList.forEach(locationItem => {
         locationItem.addEventListener("click", () => {
             const _thisCountryCode = locationItem.getAttribute("data-country-code"); // Country codes: uk, ie, pl, fr, it
+            const _thisLocationName = locationItem.getAttribute("data-location-name"); // Country name: England, Ireland, Poland, France, Italy
 
-            // Add selected country code to localStorage
-            localStorage.setItem("selectedLocation", _thisCountryCode);
-            console.log("Selected Location is: ", _thisCountryCode);
+            const selectedLocationData = {
+                countryCode: _thisCountryCode,
+                locationName: _thisLocationName
+              };
+
+            // Save selected country code and location name as JSON in localStorage
+            localStorage.setItem("selectedLocation", JSON.stringify(selectedLocationData));
+            console.log("Selected Location Data is: ", selectedLocationData);
         });
     });
 });
