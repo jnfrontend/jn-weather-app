@@ -25,4 +25,15 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("Selected Location Data is: ", selectedLocationData);
         });
     });
+
+    // Keep highlight class for selected location on page reload
+    const savedLocationData = JSON.parse(localStorage.getItem("selectedLocation")); // Read localStorage data "selectedLocation"
+    console.log('savedLocationData is: ', savedLocationData);
+    if (savedLocationData) {
+        console.log(Array.from(locationsList)); // Convert locationsList to array
+        const matchingSavedLocation = Array.from(locationsList).find(li => li.getAttribute("data-country-code") === savedLocationData.countryCode); // Match locations list <li> data-country-code with saved location data -> (countryCode) 
+        if (matchingSavedLocation) {
+            matchingSavedLocation.classList.add("selected_location");
+        }
+    }
 });
