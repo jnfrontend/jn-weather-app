@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded",() => {
         ** Get location/country-code from localStorage
         ** - Cookie has been set in locations.js
         */
-        const savedLocationData = JSON.parse(localStorage.getItem("selectedLocation"));
         if (savedLocationData) {
             countryCode = savedLocationData.countryCode;
         } else {

@@ -53,7 +53,9 @@ body {
 
 main,
 nav {
-    background-image: linear-gradient(to right, #f8f8f9, #f5f5f6, #f2f2f3, #efeef0, #ecebed);
+    /* background-image: linear-gradient(to right, #f8f8f9, #f5f5f6, #f2f2f3, #efeef0, #ecebed); */
+    background-image: linear-gradient(to right, #f1f9ff, #edf7ff, #e9f6ff, #e5f4ff, #e1f2ff);
+
 }
 
 nav .navbar-brand {
