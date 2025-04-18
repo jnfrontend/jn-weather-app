@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     locationsList.forEach(locationItem => {
         locationItem.addEventListener("click", () => {
+            // Get data from selected item
             const _thisCountryCode = locationItem.getAttribute("data-country-code"); // Country codes: uk, ie, pl, fr, it
             const _thisLocationName = locationItem.getAttribute("data-location-name"); // Country names: England, Ireland, Poland, France, Italy
 
@@ -38,6 +39,21 @@ document.addEventListener("DOMContentLoaded", function () {
             // Save selected country code and location name as JSON in localStorage
             localStorage.setItem("selectedLocation", JSON.stringify(selectedLocationData));
             console.log("Selected Location Data is: ", selectedLocationData);
+
+            // When user select new location clear weather card and local storage
+            if (selectedLocationData) {
+                selectedLocationData.weatherTemp = '';
+                selectedLocationData.weatherCityName = '';
+                selectedLocationData.weatherIcon = 'cloud';
+                document.body.setAttribute('data-weather-card-state', '');
+
+                if(document.getElementById('weather_card')) {
+                    document.querySelector('.weather_card_city').textContent = 'City in ' + selectedLocationData.locationName;
+                    document.querySelector('.weather_card_temp .temp').textContent = '';
+                    document.getElementById('weather_card_icon').src = "images/weather-icons/cloud.png";
+                }
+                console.log("Selected Location Data is: ", selectedLocationData);
+            }
         });
     });
 
