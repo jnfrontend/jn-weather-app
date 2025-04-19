@@ -116,6 +116,10 @@ body[data-weather-card-state="active"] #weather_card::after {
     background-position: 0 2px;
 }
 
+.weather_card_date {
+    right: 20px;
+}
+
 .weather_card_temp .temp {
     font-size: 6.5rem;
     font-weight: 700;

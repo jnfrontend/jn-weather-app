@@ -5,13 +5,18 @@ document.addEventListener("DOMContentLoaded",() => {
     const API_KEY = OPEN_WEATHER_API_KEY;
 	const API_URL = OPEN_WEATHER_API_URL;
 
+    let currentDate = new Date();
+    let weatherCarddate = document.querySelector('#weather_card .weather_card_date');
     const lsSavedLocationData = JSON.parse(localStorage.getItem("selectedLocation"));
 	const weatherSearchBar = document.getElementById('searchWeatherByCityName');
 	const weatherSearchButton = document.getElementById('searchWeatherAction');
     const weatherCardIcon = document.getElementById('weather_card_icon');
-
+    
+    weatherCarddate.innerHTML = displayCurrentDate(currentDate); // Display current date in weather card
     setWeatherCardToActive(lsSavedLocationData); // Check if weather card can be set to active
     populateWeatherCardOnReLoad(lsSavedLocationData);
+
+    
 
     // Function to fetch weather data
 	async function fetchWeather(cityName) {
@@ -108,4 +113,15 @@ document.addEventListener("DOMContentLoaded",() => {
         localStorageData[propertyName] = propertyValue;
         localStorage.setItem(lsObject, JSON.stringify(localStorageData));
     }
+
+    function displayCurrentDate(d) {
+        let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      
+        let day = days[d.getDay()];
+        let date = d.getDate();
+        let month = months[d.getMonth()];
+      
+        return `${day}, ${date} ${month}`;
+      }
 });
