@@ -4,31 +4,31 @@ import '../components/css/live-data.css';
 ---
 
 <BaseLayout>
-	<div class="container-fluid h-60vh d-flex flex-row align-items-center" data-anim="fadeout">
-		<div class="row align-items-start w-100">
-		  <div class="col-md-6 col-lg-6">
-			<div id="headline">
+	<div id="live-data-container" class="container-fluid h-60vh px-0 d-flex flex-md-row flex-sm-column align-items-center justify-content-center" data-anim="fadeout">
+		<div class="row align-items-start w-100 d-flex flex-column flex-md-row fadeInUp_anim">
+		  <div class="col-12 col-md-6 col-lg-6 headline_col">
+			<div id="headline" class="d-flex flex-column justify-content-sm-center">
 				<h1 id="location_name" class="display-1 fw-bolder"></h1>
-				<p class="fs-4 fw-normal mt-4 w-75">
-					<em>Please enter the city name below<br>to view its current weather.</em>
+				<p class="fs-4 fw-normal mt-4 w-75 location_name_subtext">
+					<em>Please enter the city name below <br>to view its current weather.</em>
 				</p>
 			</div>
-			<div class="search_city_container position-relative mt-4">
+			<div class="search_city_container position-relative">
                 <input type="search" id="searchWeatherByCityName" class="btn btn-white py-4 fs-5 mt-5 fw-medium d-flex rounded-pill text-start" placeholder="Type city name...">
 				<button id="searchWeatherAction" class="position-absolute rounded-circle border-0"></button>
 			</div>
 		  </div>
-          <div class="col-md-6 col-lg-6">
+          <div class="col-12 col-md-6 col-lg-6 d-flex justify-content-sm-center weather_card_col overflow-hidden fadeInUp_anim">
 				<!-- Weather Card -->
-			<div id="weather_card" class="card mb-3 border-0 text-white" style="max-width: 540px;">
+			<div id="weather_card" class="noice_anim card mb-3 border-0 text-white">
 				<div class="row g-0 z-1">
 					<div class="col-12">
 						<p class="weather_card_city"></p>
 					</div>
-					<div class="col-md-4">
+					<div class="col-md-4 weather_card_icon_col d-sm-flex">
 						<img id="weather_card_icon" src="/images/weather-icons/cloud.png" class="img-fluid rounded-start" alt="weather icon">
 				  	</div>
-				  	<div class="col-md-8">
+				  	<div class="col-md-8 d-flex align-items-center weather_card_details_col">
 						<div id="weather_card_details" class="card-body py-0">
 					  		<h2 class="weather_card_temp">
 								<span class="temp"></span>

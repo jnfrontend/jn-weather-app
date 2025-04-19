@@ -4,13 +4,13 @@
     <div class="container-fluid p-5">
         <div class="row">
             <div class="col-12 d-flex align-items-center flex-column">
-                <p class="mb-2 fs-5">Where would you like to check the weather?</p>
+                <p class="mb-2 fs-5 locations_headline_subtext">Where would you like to check the weather?</p>
                 <h1 class="display-1 fw-bolder">Select Country</h1>
             </div>
             <hr class="mt-5 mb-5">
             <div class="col-12 mt-4">
                 <ul id="locations_list" class="list-group list-group-horizontal justify-content-center text-center">
-                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0" data-country-code="uk" data-location-name="England">
+                    <li class="list-group-item col-2 py-3 d-flex justify-content-center bg-transparent border-0 rounded-pill" data-country-code="uk" data-location-name="England">
                         <div class="location_flag">
                             <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
@@ -32,12 +32,12 @@
                                     </g>
                                     </svg>
                                 </span>
-                            <span class="label">
+                            <span class="label ms-2">
                                 United Kingdom
                             </span>
                         </div>
                     </li>
-                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0" data-country-code="ie" data-location-name="Ireland">
+                    <li class="list-group-item col-2 py-3 d-flex justify-content-center bg-transparent border-0 rounded-pill" data-country-code="ie" data-location-name="Ireland">
                         <div class="location_flag">
                             <span class="icon">                                
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
@@ -48,12 +48,12 @@
                                     </g>
                                 </svg>
                             </span>
-                            <span class="label">
+                            <span class="label ms-2">
                                 Ireland
                             </span>
                         </div>
                     </li>
-                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0" data-country-code="pl" data-location-name="Poland">
+                    <li class="list-group-item col-2 py-3 d-flex justify-content-center bg-transparent border-0 rounded-pill" data-country-code="pl" data-location-name="Poland">
                         <div class="location_flag">
                             <span class="icon">                                
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
@@ -63,12 +63,12 @@
                                     </g>
                                 </svg>
                             </span>
-                            <span class="label">
+                            <span class="label ms-2">
                                 Poland
                             </span>
                         </div>
                     </li>
-                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0" data-country-code="fr" data-location-name="France">
+                    <li class="list-group-item col-2 py-3 d-flex justify-content-center bg-transparent border-0 rounded-pill" data-country-code="fr" data-location-name="France">
                         <div class="location_flag">
                             <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
@@ -79,12 +79,12 @@
                                     </g>
                                 </svg>
                             </span>
-                            <span class="label">
+                            <span class="label ms-2">
                                 France
                             </span>
                         </div>
                     </li>
-                    <li class="list-group-item col-2 d-flex justify-content-center bg-transparent border-0" data-country-code="it" data-location-name="Italy">
+                    <li class="list-group-item col-2 py-3 d-flex justify-content-center bg-transparent border-0 rounded-pill" data-country-code="it" data-location-name="Italy">
                         <div class="location_flag">
                             <span class="icon">
                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
@@ -95,7 +95,7 @@
                                     </g>
                                 </svg>
                             </span>
-                            <span class="label">
+                            <span class="label ms-2">
                                 Italy
                             </span>
                         </div>
@@ -109,7 +109,8 @@
 <style>
 
 #locations {
-    background-image: linear-gradient(to top, #eaeaeb, #ececed, #efeff0, #f2f2f3, transparent);
+    /* background-image: linear-gradient(to top, #eaeaeb, #ececed, #efeff0, #f2f2f3, transparent); */
+    background-image: linear-gradient(to right, #f1f9ff, #edf7ff, #e9f6ff, #e5f4ff, #e1f2ff);
     color: black;
     position: absolute;
     left: 0;
@@ -121,14 +122,55 @@
     transition: .25s ease;
 }
 
+#locations #locations_list li {
+    border: 2px solid transparent !important;
+    margin-right: 10px;
+    box-sizing: content-box;
+    min-width: 178px;
+}
+
+#locations #locations_list li:last-child {
+    margin-right: 0 !important;
+}
+
+#locations #locations_list li:hover {
+    border-color: #cbe3f2ef !important;
+    cursor: pointer;
+}
+
 #locations .location_flag .icon svg {
+    border-radius: 50px;
     height: 2.5rem;
     width: 2.5rem;
 }
 
+#locations .location_flag span.label {
+    font-weight: 500;
+    color: #1a486a !important;
+}
+
+#locations .selected_location,
+#locations .selected_location:hover {
+    cursor: default !important;
+    background-color: #cbe3f2 !important;
+}
+
+#locations .selected_location .location_flag .icon svg {
+    outline: 2px solid #f8f8f8;
+}
+
 body.openLocations #locations {
     transform: translateY(0);
-    transition: .20s ease .2s;
+    transition: .20s ease .05s;
+}
+
+@media (max-width: 1220px) {
+    #locations #locations_list {
+        flex-wrap: wrap;
+    }
+    #locations #locations_list li {
+        margin-bottom: 1rem;
+    }
 }
 </style>
 

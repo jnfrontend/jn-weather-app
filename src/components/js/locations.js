@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () { 
     let locationNameHeadline = document.getElementById("location_name");
-    const locationsTrigger = document.getElementById("locations_trigger"); // Button to open locations modal
+    const locationsModalTriggers = document.querySelectorAll(".locations_trigger_btn"); // Button to open locations modal
     const locationsList = document.querySelectorAll("#locations_list li"); // List of countrys/locations
 
     // If location hasn't been selected, set default location for Ireland
@@ -12,9 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("selectedLocation", JSON.stringify(defaultLocationData));
     }
 
-    locationsTrigger.addEventListener("click", function() {
-        document.body.classList.toggle("openLocations"); // Show/Hide modal with country/locations
+    locationsModalTriggers.forEach(locationsModalBtn => { 
+        locationsModalBtn.addEventListener("click", function() {
+            document.body.classList.toggle("openLocations"); // Show/Hide modal with country/locations
+        });
     });
+    
 
     locationsList.forEach(locationItem => {
         locationItem.addEventListener("click", () => {
