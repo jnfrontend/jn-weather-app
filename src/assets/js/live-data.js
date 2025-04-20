@@ -1,9 +1,6 @@
-import { OPEN_WEATHER_API_KEY } from "astro:env/client";
-import { OPEN_WEATHER_API_URL } from "astro:env/client";
-
 document.addEventListener("DOMContentLoaded",() => { 
-    const API_KEY = OPEN_WEATHER_API_KEY;
-	const API_URL = OPEN_WEATHER_API_URL;
+    const API_KEY = import.meta.env.PUBLIC_OPEN_WEATHER_API_KEY;
+	const API_URL = import.meta.env.PUBLIC_OPEN_WEATHER_API_URL;
 
     let currentDate = new Date();
     let weatherCarddate = document.querySelector('#weather_card .weather_card_date');
