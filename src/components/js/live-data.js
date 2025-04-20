@@ -7,17 +7,17 @@ document.addEventListener("DOMContentLoaded",() => {
 
     let currentDate = new Date();
     let weatherCarddate = document.querySelector('#weather_card .weather_card_date');
+    let weatherSearchErrorLabel = document.querySelector(".error_label");
     const lsSavedLocationData = JSON.parse(localStorage.getItem("selectedLocation"));
 	const weatherSearchBar = document.getElementById('searchWeatherByCityName');
 	const weatherSearchButton = document.getElementById('searchWeatherAction');
     const weatherCardIcon = document.getElementById('weather_card_icon');
     
     weatherCarddate.innerHTML = displayCurrentDate(currentDate); // Display current date in weather card
-    setWeatherCardToActive(lsSavedLocationData); // Check if weather card can be set to active
-    populateWeatherCardOnReLoad(lsSavedLocationData);
+    setActiveFlagForWeatherCard(lsSavedLocationData); // Check if weather card can be set to active
+    checkWeatherCard(lsSavedLocationData, 'City in ' + lsSavedLocationData.locationName); // Populate or clearweather card
 
     
-
     // Function to fetch weather data
 	async function fetchWeather(cityName) {
         const savedLocationData = JSON.parse(localStorage.getItem("selectedLocation"));
@@ -43,55 +43,65 @@ document.addEventListener("DOMContentLoaded",() => {
         console.log('countryCode is: ' + countryCode);
 
 		const response = await fetch(API_URL + cityName + ',' + countryCode + `&appid=${API_KEY}`);
-		if (!response.ok) {
-          throw new Error(`HTTP error: ${response.status}`);
+        if (response.status == 404) {
+            weatherSearchErrorLabel.classList.add('show_err_msg');
+            saveToWeatherLocalStorage(savedLocationData, "searchState", "", "selectedLocation");
+            console.log(savedLocationData);
+            checkWeatherCard(savedLocationData, "Invalid city name");
+        } else {
+            const weatherData = await response.json();
+            console.log(weatherData);
+
+            if(document.querySelector(".error_label.show_err_msg")) {
+                document.querySelector(".error_label").classList.remove('show_err_msg');
+            }
+
+            setActiveFlagForWeatherCard(savedLocationData);
+
+            const weatherDataCityName = weatherData.name;
+            const weatherDataTemp = Math.round(weatherData.main.temp);
+            const weatherDataIcon = weatherData.weather[0].main.toLowerCase();
+
+            // Populate weather card
+            document.querySelector(".weather_card_city").innerHTML = weatherDataCityName;
+            document.querySelector(".weather_card_temp .temp").innerHTML = weatherDataTemp;
+
+            // Save searched weather data into local storage
+            saveToWeatherLocalStorage(savedLocationData, 'weatherCityName', weatherDataCityName, "selectedLocation");
+            saveToWeatherLocalStorage(savedLocationData, 'weatherTemp', weatherDataTemp, "selectedLocation");
+            saveToWeatherLocalStorage(savedLocationData, 'weatherIcon', weatherDataIcon, "selectedLocation");
+            console.log(savedLocationData);
+
+            // Display weather icon
+            displayWeatherConditionIcon(weatherDataIcon);
         }
+	} // End fetch api
 
-		const weatherData = await response.json();
-		console.log(weatherData);
-
-        setWeatherCardToActive(savedLocationData);
-
-        const weatherDataCityName = weatherData.name;
-        const weatherDataTemp = Math.round(weatherData.main.temp);
-        const weatherDataIcon = weatherData.weather[0].main.toLowerCase();
-
-        // Populate weather card
-        document.querySelector(".weather_card_city").innerHTML = weatherDataCityName;
-        document.querySelector(".weather_card_temp .temp").innerHTML = weatherDataTemp;
-
-        // Save searched weather data into local storage
-        saveToWeatherLocalStorage(savedLocationData, 'weatherCityName', weatherDataCityName, "selectedLocation");
-        saveToWeatherLocalStorage(savedLocationData, 'weatherTemp', weatherDataTemp, "selectedLocation");
-        saveToWeatherLocalStorage(savedLocationData, 'weatherIcon', weatherDataIcon, "selectedLocation");
-        console.log(savedLocationData);
-
-        // Display weather icon
-        displayWeatherConditionIcon(weatherDataIcon);
-        
-	}
-
-    /*
-    ** Fetch weather api
-    */
-    // When the user enters the city name and clicks the Search button -> display weather data
+    // When the user enters the city name and clicks the Search button -> fetch and display weather data
 	weatherSearchButton.addEventListener("click", () => {
 		fetchWeather(weatherSearchBar.value);
 	});
 
     // When page is reloaded fill out weather card with data from localStorage
-    function populateWeatherCardOnReLoad(localStorageData) {
-        if (localStorageData.searchState) { 
+    // OR clear weather card data if value for 'searchState' property is empty
+    // document.querySelector('.weather_card_city').textContent = 'City in ' + localStorageData.locationName; Invalid city name. 
+    function checkWeatherCard(localStorageData, lsCityName) {
+        if (localStorageData.searchState && !localStorageData.searchState == "") { 
             document.querySelector(".weather_card_city").innerHTML = localStorageData.weatherCityName;
             document.querySelector(".weather_card_temp .temp").innerHTML = localStorageData.weatherTemp;
             displayWeatherConditionIcon(localStorageData.weatherIcon);
+            console.log('searchState is: ' + localStorageData.searchState);
         } else {
-            document.querySelector('.weather_card_city').textContent = 'City in ' + localStorageData.locationName;
+            console.log('searchState is empty - clear weather card [!]');
+            document.querySelector('.weather_card_city').textContent = lsCityName;
+            document.querySelector(".weather_card_temp .temp").innerHTML = "";
+            document.getElementById('weather_card_icon').src = "images/weather-icons/cloud.png";
+            document.body.setAttribute('data-weather-card-state', ''); 
         }
     }
 
     // If user searched for city then set weather card to active
-    function setWeatherCardToActive(localStorageData) {
+    function setActiveFlagForWeatherCard(localStorageData) {
         if (localStorageData.searchState) { 
             document.body.setAttribute('data-weather-card-state', 'active'); // Set data attribute value to active
         }
@@ -114,6 +124,7 @@ document.addEventListener("DOMContentLoaded",() => {
         localStorage.setItem(lsObject, JSON.stringify(localStorageData));
     }
 
+    // Display current date
     function displayCurrentDate(d) {
         let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];

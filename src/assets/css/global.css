@@ -22,6 +22,10 @@ hr {
     min-height: 600px;
 }
 
+html, body {
+    transition: .20s ease .10s;
+}
+
 /* Fonts */
 h1 {
     font-family: "Inter", sans-serif;

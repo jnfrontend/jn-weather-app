@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () { 
     let locationNameHeadline = document.getElementById("location_name");
+    let weatherSearchInput = document.getElementById("searchWeatherByCityName");
     const locationsModalTriggers = document.querySelectorAll(".locations_trigger_btn"); // Button to open locations modal
     const locationsList = document.querySelectorAll("#locations_list li"); // List of countrys/locations
 
@@ -54,6 +55,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     document.querySelector('.weather_card_city').textContent = 'City in ' + selectedLocationData.locationName;
                     document.querySelector('.weather_card_temp .temp').textContent = '';
                     document.getElementById('weather_card_icon').src = "images/weather-icons/cloud.png";
+                    
+                    // Clear value in weather search bar
+                    if(weatherSearchInput) {
+                        weatherSearchInput.value = "";
+                    }
+
+                    // Hide search error notification
+                    if(document.querySelector(".error_label.show_err_msg")) {
+                        document.querySelector(".error_label").classList.remove('show_err_msg');
+                    }
                 }
                 console.log("Selected Location Data is: ", selectedLocationData);
             }
@@ -64,7 +75,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const savedLocationData = JSON.parse(localStorage.getItem("selectedLocation")); // Read localStorage data "selectedLocation"
     console.log('savedLocationData is: ', savedLocationData);
     if (savedLocationData) {
-        console.log(Array.from(locationsList)); // Convert locationsList to array
+        // Convert locationsList to array
+        // console.log(Array.from(locationsList));
         const matchingSavedLocation = Array.from(locationsList).find(li => li.getAttribute("data-country-code") === savedLocationData.countryCode); // Match locations list <li> data-country-code with saved location data -> (countryCode) 
         if (matchingSavedLocation) {
             matchingSavedLocation.classList.add("selected_location");
