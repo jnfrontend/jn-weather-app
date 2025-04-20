@@ -33,13 +33,13 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Make envfile
-        uses: SpicyPizza/create-envfile@v2.0
-        with:
-          envkey_OPEN_WEATHER_API_URL: https://api.openweathermap.org/data/2.5/weather?units=metric&q=
-          envkey_OPEN_WEATHER_API_KEY: ${{ secrets.OPEN_WEATHER_API_KEY }}
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Set env variable
+        run: echo "Set env variable for open weather api"
+        env:
+          OPEN_WEATHER_API_URL: https://api.openweathermap.org/data/2.5/weather?units=metric&q=
+          OPEN_WEATHER_API_KEY: ${{ secrets.OPEN_WEATHER_API_KEY }}  
       - name: Detect package manager
         id: detect-package-manager
         run: |
