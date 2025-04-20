@@ -1,0 +1,7 @@
+.navbar-nav .nav_home_link a {
+    color: black;
+    font-weight: bold;
+}
+.navbar-nav .nav_home_link a:after {
+    background-color: #fcd921;
+}

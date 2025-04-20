@@ -1,0 +1,516 @@
+.search_city_container {
+    width: fit-content;
+}
+
+.search_city_container #searchWeatherByCityName {
+    text-transform: capitalize;
+    letter-spacing: .8px;
+    padding-left: 2rem;
+    padding-right: 5rem;
+    width: 380px;
+}
+
+.search_city_container input::placeholder {
+    text-transform: initial;
+    letter-spacing: .6px;
+    color: #586f80;
+    font-size: 1.25rem;
+}
+
+.search_city_container #searchWeatherAction {
+    background: url("/images/search-icon-light.png") no-repeat center;
+    background-size: 24px;
+    width: 48px;
+    height: 48px;
+    background-color: black;
+    top: 50%;
+    right: 1rem;
+    transition: .25s ease;
+    transform: translateY(-50%);
+}
+
+.search_city_container:hover #searchWeatherAction {
+    transition: .25s ease .25s;
+    background-color: #fcd921;
+}
+
+.search_city_container:hover #searchWeatherByCityName {
+    transition: .35s ease .2s;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+}
+
+.error_label {
+    width: fit-content;
+    border-radius: 6px;
+    color: #1a486a !important;
+    font-size: 12.5px;
+    letter-spacing: .2px;
+    text-transform: uppercase;
+    background-color: #cbe3f2 !important;
+    transition: .10s ease-out .1s;
+    font-weight: 700;
+    line-height: 20px;
+    transform: translateY(50px);
+    padding: 5px 10px 4px 11px;
+    z-index: 0;
+    opacity: 0;
+}
+
+.error_label.show_err_msg {
+    transition: .20s ease;
+    transform: translateY(0);
+    opacity: 1;
+}
+
+#weather_card {
+    /* max-width: 540px; */
+    width: 100%;
+    padding-right: 0;
+    /* background-color: #88a0f9; */
+    padding: 20px;
+    border-radius: 20px;
+    border: 4px solid #d9f0ff !important;
+    background-image: linear-gradient(to left, #d9f0ff, #d1eafe, #cae3fc, #c5dcfb, #c1d5f9);
+    /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03), 0 4px 10px rgba(0, 0, 0, 0.02), 0 5px 30px rgba(0, 0, 0, 0.06); */
+    box-shadow: 0 1px 4px #abcce045, 0 4px 10px #b2cfe14a, 0 5px 30px #a9cfe73d;
+    outline: 1px solid #d0e2f194;
+    text-shadow: 0.5px 1px 3px #7994c12e;
+    --offset: 2px;
+    position: relative;
+    overflow: hidden;
+    filter: grayscale(1);
+    opacity: .85;
+    z-index: 2;
+}
+
+#weather_card > .row {
+    opacity: 0.85;
+}
+
+#weather_card #weather_card_icon {
+    max-width: 185px;
+    min-width: 140px;
+}
+
+body[data-weather-card-state="active"] #weather_card {
+    transition: all 1.25s ease .025s;
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+body[data-weather-card-state="active"] #weather_card > .row {
+    opacity: 1;
+}
+
+body[data-weather-card-state="active"] #weather_card::before { 
+    content: '';
+    background: conic-gradient(transparent 270deg, white, transparent);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    aspect-ratio: 1;
+    width: 100%;
+    animation: rotate 2s linear infinite;
+}
+
+body[data-weather-card-state="active"] #weather_card::after {
+    content: '';
+    background: inherit;
+    border-radius: inherit;
+    position: absolute;
+    inset: var(--offset);
+    height: calc(100% - 2 * var(--offset));
+    width: calc(100% - 2 * var(--offset));
+}
+
+.weather_card_city {
+    background: url("images/pin-icon.svg") no-repeat;
+    background-size: 21px;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: .8px;
+    border-bottom: 1px solid #d7eeff;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    padding-left: 28px;
+    background-position: 0 2px;
+}
+
+.weather_card_date {
+    right: 20px;
+}
+
+.weather_card_temp .temp {
+    font-size: 6.5rem;
+    font-weight: 700;
+}
+
+body[data-weather-card-state="active"] .temp::after {
+    content: "\00b0";
+    font-weight: 100;
+    font-size: 4.8rem;
+    vertical-align: text-top;
+    margin-top: 7px;
+    display: inline-block;
+}
+
+.navbar-nav .nav_live_data_link a {
+    color: black;
+    font-weight: bold;
+}
+
+.navbar-nav .nav_live_data_link a:after {
+    background-color: #fcd921;
+}
+
+.weather_card_icon_col {
+    justify-content: center;
+    align-items: center;
+}
+
+.weather_card_details_col {
+    min-height: 190px;
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) scale(1.4) rotate(0turn);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1.4) rotate(1turn);
+    }
+}
+
+@media (max-width: 1061px) {
+    #headline .location_name_subtext br {
+        display: none;
+    }    
+}
+
+@media (max-width: 991px) {
+    #live-data-container > .row {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+    .search_city_container,
+    .search_city_container input#searchWeatherByCityName,
+    .location_name_subtext,
+    .weather_card_col,
+    .headline_col {
+        width: 100% !important;
+    }
+    #weather_card {
+        max-width: 100%;
+    }
+    .weather_card_icon_col {
+        width: 200px;
+    }
+    .weather_card_details_col {
+        min-height: auto;
+        width: calc(100% - 200px);
+    }
+    .error_label {
+        width: 100%;
+        padding: 6px 12px 6px 13px;
+        margin-bottom: 20px;
+    }
+    /* .h-60vh {
+        height: auto;
+        min-height: auto;
+    } */
+}
+
+@media (max-width: 505px) {
+    .weather_card_icon_col,
+    .weather_card_details_col {
+        width: 100%;
+    }
+
+    .weather_card_icon_col #weather_card_icon {
+        max-width: 200px;
+    }
+
+    .weather_card_icon_col,
+    #weather_card_details .weather_card_temp {
+        justify-content: center;
+        display: flex;
+    }
+}
+
+
+/* Animate unactive weather card */
+body[data-weather-card-state=""] .noice_anim {
+    z-index: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+body[data-weather-card-state=""] .noice_anim > * {
+    z-index: 2;
+}
+body[data-weather-card-state=""] .noice_anim:after {
+    opacity: .65;
+    -webkit-animation: grain 5s steps(10) infinite;
+    -moz-animation: grain 5s steps(10) infinite;
+    -ms-animation: grain 5s steps(10) infinite;
+    animation: grain 5s steps(10) infinite;
+    background: url("/images/noice.png");
+    content: "";
+    display: block;
+    height: 300%;
+    left: -120%;
+    position: absolute;
+    top: -120%;
+    width: 300%;
+    z-index: 0;
+}
+@-webkit-keyframes grain {
+    0%, 100% {
+      -moz-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+    10% {
+      -moz-transform: translate(-5%, -10%);
+      -ms-transform: translate(-5%, -10%);
+      -webkit-transform: translate(-5%, -10%);
+      transform: translate(-5%, -10%);
+    }
+    20% {
+      -moz-transform: translate(-15%, 5%);
+      -ms-transform: translate(-15%, 5%);
+      -webkit-transform: translate(-15%, 5%);
+      transform: translate(-15%, 5%);
+    }
+    30% {
+      -moz-transform: translate(7%, -25%);
+      -ms-transform: translate(7%, -25%);
+      -webkit-transform: translate(7%, -25%);
+      transform: translate(7%, -25%);
+    }
+    40% {
+      -moz-transform: translate(-5%, 25%);
+      -ms-transform: translate(-5%, 25%);
+      -webkit-transform: translate(-5%, 25%);
+      transform: translate(-5%, 25%);
+    }
+    50% {
+      -moz-transform: translate(-15%, 10%);
+      -ms-transform: translate(-15%, 10%);
+      -webkit-transform: translate(-15%, 10%);
+      transform: translate(-15%, 10%);
+    }
+    60% {
+      -moz-transform: translate(15%, 0%);
+      -ms-transform: translate(15%, 0%);
+      -webkit-transform: translate(15%, 0%);
+      transform: translate(15%, 0%);
+    }
+    70% {
+      -moz-transform: translate(0%, 15%);
+      -ms-transform: translate(0%, 15%);
+      -webkit-transform: translate(0%, 15%);
+      transform: translate(0%, 15%);
+    }
+    80% {
+      -moz-transform: translate(3%, 35%);
+      -ms-transform: translate(3%, 35%);
+      -webkit-transform: translate(3%, 35%);
+      transform: translate(3%, 35%);
+    }
+    90% {
+      -moz-transform: translate(-10%, 10%);
+      -ms-transform: translate(-10%, 10%);
+      -webkit-transform: translate(-10%, 10%);
+      transform: translate(-10%, 10%);
+    }
+  }
+  @-moz-keyframes grain {
+    0%, 100% {
+      -moz-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+    10% {
+      -moz-transform: translate(-5%, -10%);
+      -ms-transform: translate(-5%, -10%);
+      -webkit-transform: translate(-5%, -10%);
+      transform: translate(-5%, -10%);
+    }
+    20% {
+      -moz-transform: translate(-15%, 5%);
+      -ms-transform: translate(-15%, 5%);
+      -webkit-transform: translate(-15%, 5%);
+      transform: translate(-15%, 5%);
+    }
+    30% {
+      -moz-transform: translate(7%, -25%);
+      -ms-transform: translate(7%, -25%);
+      -webkit-transform: translate(7%, -25%);
+      transform: translate(7%, -25%);
+    }
+    40% {
+      -moz-transform: translate(-5%, 25%);
+      -ms-transform: translate(-5%, 25%);
+      -webkit-transform: translate(-5%, 25%);
+      transform: translate(-5%, 25%);
+    }
+    50% {
+      -moz-transform: translate(-15%, 10%);
+      -ms-transform: translate(-15%, 10%);
+      -webkit-transform: translate(-15%, 10%);
+      transform: translate(-15%, 10%);
+    }
+    60% {
+      -moz-transform: translate(15%, 0%);
+      -ms-transform: translate(15%, 0%);
+      -webkit-transform: translate(15%, 0%);
+      transform: translate(15%, 0%);
+    }
+    70% {
+      -moz-transform: translate(0%, 15%);
+      -ms-transform: translate(0%, 15%);
+      -webkit-transform: translate(0%, 15%);
+      transform: translate(0%, 15%);
+    }
+    80% {
+      -moz-transform: translate(3%, 35%);
+      -ms-transform: translate(3%, 35%);
+      -webkit-transform: translate(3%, 35%);
+      transform: translate(3%, 35%);
+    }
+    90% {
+      -moz-transform: translate(-10%, 10%);
+      -ms-transform: translate(-10%, 10%);
+      -webkit-transform: translate(-10%, 10%);
+      transform: translate(-10%, 10%);
+    }
+  }
+  @-ms-keyframes grain {
+    0%, 100% {
+      -moz-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+    10% {
+      -moz-transform: translate(-5%, -10%);
+      -ms-transform: translate(-5%, -10%);
+      -webkit-transform: translate(-5%, -10%);
+      transform: translate(-5%, -10%);
+    }
+    20% {
+      -moz-transform: translate(-15%, 5%);
+      -ms-transform: translate(-15%, 5%);
+      -webkit-transform: translate(-15%, 5%);
+      transform: translate(-15%, 5%);
+    }
+    30% {
+      -moz-transform: translate(7%, -25%);
+      -ms-transform: translate(7%, -25%);
+      -webkit-transform: translate(7%, -25%);
+      transform: translate(7%, -25%);
+    }
+    40% {
+      -moz-transform: translate(-5%, 25%);
+      -ms-transform: translate(-5%, 25%);
+      -webkit-transform: translate(-5%, 25%);
+      transform: translate(-5%, 25%);
+    }
+    50% {
+      -moz-transform: translate(-15%, 10%);
+      -ms-transform: translate(-15%, 10%);
+      -webkit-transform: translate(-15%, 10%);
+      transform: translate(-15%, 10%);
+    }
+    60% {
+      -moz-transform: translate(15%, 0%);
+      -ms-transform: translate(15%, 0%);
+      -webkit-transform: translate(15%, 0%);
+      transform: translate(15%, 0%);
+    }
+    70% {
+      -moz-transform: translate(0%, 15%);
+      -ms-transform: translate(0%, 15%);
+      -webkit-transform: translate(0%, 15%);
+      transform: translate(0%, 15%);
+    }
+    80% {
+      -moz-transform: translate(3%, 35%);
+      -ms-transform: translate(3%, 35%);
+      -webkit-transform: translate(3%, 35%);
+      transform: translate(3%, 35%);
+    }
+    90% {
+      -moz-transform: translate(-10%, 10%);
+      -ms-transform: translate(-10%, 10%);
+      -webkit-transform: translate(-10%, 10%);
+      transform: translate(-10%, 10%);
+    }
+  }
+  @keyframes grain {
+    0%, 100% {
+      -moz-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+      -webkit-transform: translate(0, 0);
+      transform: translate(0, 0);
+    }
+    10% {
+      -moz-transform: translate(-5%, -10%);
+      -ms-transform: translate(-5%, -10%);
+      -webkit-transform: translate(-5%, -10%);
+      transform: translate(-5%, -10%);
+    }
+    20% {
+      -moz-transform: translate(-15%, 5%);
+      -ms-transform: translate(-15%, 5%);
+      -webkit-transform: translate(-15%, 5%);
+      transform: translate(-15%, 5%);
+    }
+    30% {
+      -moz-transform: translate(7%, -25%);
+      -ms-transform: translate(7%, -25%);
+      -webkit-transform: translate(7%, -25%);
+      transform: translate(7%, -25%);
+    }
+    40% {
+      -moz-transform: translate(-5%, 25%);
+      -ms-transform: translate(-5%, 25%);
+      -webkit-transform: translate(-5%, 25%);
+      transform: translate(-5%, 25%);
+    }
+    50% {
+      -moz-transform: translate(-15%, 10%);
+      -ms-transform: translate(-15%, 10%);
+      -webkit-transform: translate(-15%, 10%);
+      transform: translate(-15%, 10%);
+    }
+    60% {
+      -moz-transform: translate(15%, 0%);
+      -ms-transform: translate(15%, 0%);
+      -webkit-transform: translate(15%, 0%);
+      transform: translate(15%, 0%);
+    }
+    70% {
+      -moz-transform: translate(0%, 15%);
+      -ms-transform: translate(0%, 15%);
+      -webkit-transform: translate(0%, 15%);
+      transform: translate(0%, 15%);
+    }
+    80% {
+      -moz-transform: translate(3%, 35%);
+      -ms-transform: translate(3%, 35%);
+      -webkit-transform: translate(3%, 35%);
+      transform: translate(3%, 35%);
+    }
+    90% {
+      -moz-transform: translate(-10%, 10%);
+      -ms-transform: translate(-10%, 10%);
+      -webkit-transform: translate(-10%, 10%);
+      transform: translate(-10%, 10%);
+    }
+  }
