@@ -1,3 +1,6 @@
+---
+import '../components/css/main-nav.css';
+---
 <nav class="navbar navbar-expand-lg rounded-4 rounded-bottom-0 px-2" aria-labelledby="primary-navigation">
     <div class="container-fluid" data-anim="fadeout">
         <a class="navbar-brand fw-bold fs-5 d-flex align-items-center" href="/">
@@ -27,111 +30,9 @@
         </div>
     </div>
 </nav>
-
 <div class="close_modal position-absolute d-flex justify-content-center align-items-center locations_trigger_btn">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14"><path fill="black" fill-rule="evenodd" d="M14 1.41L12.59 0 7 5.59 1.41 0 0 1.41 5.59 7 0 12.59 1.41 14 7 8.41 12.59 14 14 12.59 8.41 7 14 1.41z"></path></svg>
 </div>
-
-<style>
-    #locations_trigger.active {
-        font-weight: 500;
-    }
-    #locations_trigger::after {
-        display: none;
-    }
-    @media (max-width: 991px) {
-        button.navbar-toggler {
-            display: flex;
-            align-items: center;
-            padding-right: 0;
-        }
-        button.navbar-toggler .navbar-toggler-menu-icon {
-            display: inline-block;
-            width: 2.25em;
-            height: 1.5em;
-            vertical-align: middle;
-            position: relative;
-        }
-        button.navbar-toggler .navbar-toggler-menu-icon:before,
-        button.navbar-toggler .navbar-toggler-menu-icon:after {
-            content: "";
-            width: 2.25em;
-            height: 3px;
-            background-color: black;
-            position: absolute;
-            left: 0;
-            right: 0;
-        }
-
-        .navbar-toggler-menu-icon:before {
-            top: .52em;
-        }
-        .navbar-toggler-menu-icon:after {
-            bottom: .52em;
-        }
-        nav.navbar button.navbar-toggler,
-        nav.navbar button.navbar-toggler:focus {
-            box-shadow: none;
-            outline: none;
-            border: none;
-        }
-        nav.navbar .navbar-collapse ul.navbar-nav li {
-            
-        }
-
-        nav.navbar .navbar-collapse ul.navbar-nav li.nav_live_data_link {
-            border-top: 1px solid #bcccd9;
-            border-bottom: 1px solid #bcccd9;
-            margin-bottom: 10px;
-            padding: 10px 0;
-            margin-top: 5px;
-        }
-        nav.navbar .navbar-collapse ul.navbar-nav li a small,
-        nav.navbar .navbar-collapse #locations_trigger small {
-            text-transform: uppercase;
-            letter-spacing: .4px;
-            text-decoration: none;
-            border: none;
-            font-weight: 500;
-            color: black;
-            font-size: 1.15rem;
-            transition: color .25s linear;
-        }
-
-        nav.navbar .navbar-collapse ul.navbar-nav li a small:hover,
-        nav.navbar .navbar-collapse #locations_trigger small:hover {
-            color: #94a4bf !important;
-            transition: color .25s linear;
-        }
-
-        nav.navbar .navbar-collapse .locations_link_container {
-            border-bottom: 1px solid #bcccd9;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-        }
-        nav.navbar .navbar-collapse #locations_trigger {
-            /* margin-top: 10px; */
-            flex-direction: row-reverse;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        nav.navbar .navbar-collapse ul.navbar-nav li.nav_home_link,
-        nav.navbar .navbar-collapse #locations_trigger svg,
-        nav.navbar .navbar-collapse ul.navbar-nav li a::after,
-        nav.navbar .navbar-collapse #locations_trigger::after {
-            display: none;
-        }
-    }
-</style>
-
 <script>
-    const nav = document.querySelector(".navbar");
-    const navLinks = nav.querySelectorAll("a");
-    const currentURL = window.location.href;
-    navLinks?.forEach((link) => {
-        if(link.href === currentURL) {
-            link.classList.add("active");
-        }
-    });
+    import '../components/js/main-nav.js';
 </script>

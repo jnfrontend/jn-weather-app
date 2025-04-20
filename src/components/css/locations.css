@@ -1,0 +1,64 @@
+#locations {
+    /* background-image: linear-gradient(to top, #eaeaeb, #ececed, #efeff0, #f2f2f3, transparent); */
+    background-image: linear-gradient(to right, #f1f9ff, #edf7ff, #e9f6ff, #e5f4ff, #e1f2ff);
+    color: black;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    border-radius: 0 0 8px 8px;
+    transform: translateY(100%);
+    transition: .25s ease;
+}
+
+#locations #locations_list li {
+    border: 2px solid transparent !important;
+    margin-right: 10px;
+    box-sizing: content-box;
+    min-width: 178px;
+}
+
+#locations #locations_list li:last-child {
+    margin-right: 0 !important;
+}
+
+#locations #locations_list li:hover {
+    border-color: #cbe3f2ef !important;
+    cursor: pointer;
+}
+
+#locations .location_flag .icon svg {
+    border-radius: 50px;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+#locations .location_flag span.label {
+    font-weight: 500;
+    color: #1a486a !important;
+}
+
+#locations .selected_location,
+#locations .selected_location:hover {
+    cursor: default !important;
+    background-color: #cbe3f2 !important;
+}
+
+#locations .selected_location .location_flag .icon svg {
+    outline: 2px solid #f8f8f8;
+}
+
+body.openLocations #locations {
+    transform: translateY(0);
+    transition: .20s ease .05s;
+}
+
+@media (max-width: 1220px) {
+    #locations #locations_list {
+        flex-wrap: wrap;
+    }
+    #locations #locations_list li {
+        margin-bottom: 1rem;
+    }
+}

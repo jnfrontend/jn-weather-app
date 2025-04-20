@@ -1,0 +1,79 @@
+#locations_trigger.active {
+    font-weight: 500;
+}
+@media (max-width: 991px) {
+    button.navbar-toggler {
+        display: flex;
+        align-items: center;
+        padding-right: 0;
+    }
+    button.navbar-toggler .navbar-toggler-menu-icon {
+        display: inline-block;
+        width: 2.25em;
+        height: 1.5em;
+        vertical-align: middle;
+        position: relative;
+    }
+    button.navbar-toggler .navbar-toggler-menu-icon:before,
+    button.navbar-toggler .navbar-toggler-menu-icon:after {
+        content: "";
+        width: 2.25em;
+        height: 3px;
+        background-color: black;
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+    .navbar-toggler-menu-icon:before {
+        top: .52em;
+    }
+    .navbar-toggler-menu-icon:after {
+        bottom: .52em;
+    }
+    nav.navbar button.navbar-toggler,
+    nav.navbar button.navbar-toggler:focus {
+        box-shadow: none;
+        outline: none;
+        border: none;
+    }
+    nav.navbar .navbar-collapse ul.navbar-nav li.nav_live_data_link {
+        border-top: 1px solid #bcccd9;
+        border-bottom: 1px solid #bcccd9;
+        margin-bottom: 10px;
+        padding: 10px 0;
+        margin-top: 5px;
+    }
+    nav.navbar .navbar-collapse ul.navbar-nav li a small,
+    nav.navbar .navbar-collapse #locations_trigger small {
+        text-transform: uppercase;
+        letter-spacing: .4px;
+        text-decoration: none;
+        border: none;
+        font-weight: 500;
+        color: black;
+        font-size: 1.15rem;
+        transition: color .25s linear;
+    }
+    nav.navbar .navbar-collapse ul.navbar-nav li a small:hover,
+    nav.navbar .navbar-collapse #locations_trigger small:hover {
+        color: #94a4bf !important;
+        transition: color .25s linear;
+    }
+    nav.navbar .navbar-collapse .locations_link_container {
+        border-bottom: 1px solid #bcccd9;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    nav.navbar .navbar-collapse #locations_trigger {
+        flex-direction: row-reverse;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    nav.navbar .navbar-collapse ul.navbar-nav li.nav_home_link,
+    nav.navbar .navbar-collapse #locations_trigger svg,
+    nav.navbar .navbar-collapse ul.navbar-nav li a::after,
+    nav.navbar .navbar-collapse #locations_trigger::after {
+        display: none;
+    }
+}
