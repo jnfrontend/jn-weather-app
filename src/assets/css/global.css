@@ -126,7 +126,7 @@ section {
 
 .cta_container .btn .arrow-icon {
     transition: .25s ease 0.05;
-    background-image: url('/images/arrow-icon.svg');
+    background-image: url('/jn-weather-app/images/arrow-icon.svg');
     width: 24px;
     background-repeat: no-repeat;
     background-position: center;

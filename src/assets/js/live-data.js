@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded",() => { 
+document.addEventListener("DOMContentLoaded",() => {
+    const BASE_URL = import.meta.env.BASE_URL;
+    const ASSETS_IMG_PATH = BASE_URL + "/images";
     const API_KEY = import.meta.env.PUBLIC_OPEN_WEATHER_API_KEY;
 	const API_URL = import.meta.env.PUBLIC_OPEN_WEATHER_API_URL;
 
@@ -92,8 +94,8 @@ document.addEventListener("DOMContentLoaded",() => {
             console.log('searchState is empty - clear weather card [!]');
             document.querySelector('.weather_card_city').textContent = lsCityName;
             document.querySelector(".weather_card_temp .temp").innerHTML = "";
-            document.getElementById('weather_card_icon').src = "images/weather-icons/cloud.png";
-            document.body.setAttribute('data-weather-card-state', ''); 
+            document.getElementById('weather_card_icon').src = ASSETS_IMG_PATH + "/weather-icons/cloud.png";
+            document.body.setAttribute('data-weather-card-state', '');
         }
     }
 
@@ -109,9 +111,9 @@ document.addEventListener("DOMContentLoaded",() => {
         const weatherConditions = ["clear", "clouds", "mist", "fog", "snow", "drizzle", "thunderstorm"];
         if (weatherConditions.includes(weatherIconName)) {
             console.log("Weather condition is:", weatherIconName);
-            weatherCardIcon.src = "images/weather-icons/" + weatherIconName + ".png";
+            weatherCardIcon.src = ASSETS_IMG_PATH + "/weather-icons/" + weatherIconName + ".png";
           } else {
-            weatherCardIcon.src = "images/weather-icons/cloud.png"; // Default weather icon
+            weatherCardIcon.src = ASSETS_IMG_PATH + "/weather-icons/cloud.png"; // Default weather icon
           }
     }
 

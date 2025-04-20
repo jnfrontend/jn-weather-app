@@ -18,7 +18,7 @@
 }
 
 .search_city_container #searchWeatherAction {
-    background: url("/images/search-icon-light.png") no-repeat center;
+    background: url("/jn-weather-app/images/search-icon-light.png") no-repeat center;
     background-size: 24px;
     width: 48px;
     height: 48px;
@@ -125,7 +125,7 @@ body[data-weather-card-state="active"] #weather_card::after {
 }
 
 .weather_card_city {
-    background: url("images/pin-icon.svg") no-repeat;
+    background: url("/jn-weather-app/images/pin-icon.svg") no-repeat;
     background-size: 21px;
     font-size: 17px;
     font-weight: 600;
@@ -256,7 +256,7 @@ body[data-weather-card-state=""] .noice_anim:after {
     -moz-animation: grain 5s steps(10) infinite;
     -ms-animation: grain 5s steps(10) infinite;
     animation: grain 5s steps(10) infinite;
-    background: url("/images/noice.png");
+    background: url("/jn-weather-app/images/noice.png");
     content: "";
     display: block;
     height: 300%;

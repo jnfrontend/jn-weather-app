@@ -1,4 +1,6 @@
-document.addEventListener("DOMContentLoaded", function () { 
+document.addEventListener("DOMContentLoaded", function () {
+    const BASE_URL = import.meta.env.BASE_URL;
+    const ASSETS_IMG_PATH = BASE_URL + "/images";
     let locationNameHeadline = document.getElementById("location_name");
     let weatherSearchInput = document.getElementById("searchWeatherByCityName");
     const locationsModalTriggers = document.querySelectorAll(".locations_trigger_btn"); // Button to open locations modal
@@ -54,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if(document.getElementById('weather_card')) {
                     document.querySelector('.weather_card_city').textContent = 'City in ' + selectedLocationData.locationName;
                     document.querySelector('.weather_card_temp .temp').textContent = '';
-                    document.getElementById('weather_card_icon').src = "images/weather-icons/cloud.png";
+                    document.getElementById('weather_card_icon').src = ASSETS_IMG_PATH + "/weather-icons/cloud.png";
                     
                     // Clear value in weather search bar
                     if(weatherSearchInput) {

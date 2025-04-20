@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../assets/css/live-data.css';
+const baseURL = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout>
@@ -30,7 +31,7 @@ import '../assets/css/live-data.css';
 						<p class="weather_card_date position-absolute"></p>
 					</div>
 					<div class="col-md-4 weather_card_icon_col d-sm-flex">
-						<img id="weather_card_icon" src="/images/weather-icons/cloud.png" class="img-fluid rounded-start" alt="weather icon">
+						<img id="weather_card_icon" src=`${baseURL}/images/weather-icons/cloud.png` class="img-fluid rounded-start" alt="weather icon">
 				  	</div>
 				  	<div class="col-md-8 d-flex align-items-center weather_card_details_col">
 						<div id="weather_card_details" class="card-body py-0">

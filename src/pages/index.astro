@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import '../assets/css/home.css';
+const baseURL = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout>
@@ -12,7 +13,7 @@ import '../assets/css/home.css';
 				<p class="fs-4 fw-normal mt-4"><em>Get real-time weather updates for location of your choice with this astro app.</em></p>
 			</div>
 			<div class="cta_container mt-4">
-				<a href="/live-data" class="btn btn-dark px-5 py-3 fs-5 mt-5 fw-medium d-flex"><span class="btn-text">Get started</span><span class="arrow-icon"></span></a>
+				<a href=`${baseURL}/live-data` class="btn btn-dark px-5 py-3 fs-5 mt-5 fw-medium d-flex"><span class="btn-text">Get started</span><span class="arrow-icon"></span></a>
 			</div>
 		  </div>
 		</div>
