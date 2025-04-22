@@ -7,7 +7,6 @@ import Locations from "../components/Locations.astro";
 import Footer from "../components/Footer.astro";
 
 console.log(Astro.url);
-const { pathname } = Astro.url;
 const BASE_URL = import.meta.env.BASE_URL;
 ---
 
@@ -18,7 +17,7 @@ const BASE_URL = import.meta.env.BASE_URL;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href=`${BASE_URL}/favicon.svg` />
 		<meta name="generator" content={Astro.generator} />
-		<title>JN - Weather App</title>
+		<title>{Astro.props.title}</title>
 
 		<!-- Google Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -36,10 +35,6 @@ const BASE_URL = import.meta.env.BASE_URL;
 		<Footer/>
 	</body>
 </html>
-
-<style>
-</style>
-
 <script>
 	import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 </script>

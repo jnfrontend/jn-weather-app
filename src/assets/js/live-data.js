@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded",() => {
         let countryCode = "";
   
         /* 
-        ** Cookie "savedLocationData" has been set in locations.js
+        ** Local storage "savedLocationData" has been set in locations.js
         */
         if (savedLocationData) {
             // Get location/country-code from localStorage
@@ -83,7 +83,6 @@ document.addEventListener("DOMContentLoaded",() => {
 
     // When page is reloaded fill out weather card with data from localStorage
     // OR clear weather card data if value for 'searchState' property is empty
-    // document.querySelector('.weather_card_city').textContent = 'City in ' + localStorageData.locationName; Invalid city name. 
     function checkWeatherCard(localStorageData, lsCityName) {
         if (localStorageData.searchState && !localStorageData.searchState == "") { 
             document.querySelector(".weather_card_city").innerHTML = localStorageData.weatherCityName;

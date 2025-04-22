@@ -4,7 +4,7 @@ import '../assets/css/live-data.css';
 const baseURL = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout>
+<BaseLayout title="WEATHER APP - Live Data">
 	<div id="live-data-container" class="container-fluid h-60vh px-0 d-flex flex-md-row flex-sm-column align-items-center justify-content-center" data-anim="fadeout">
 		<div class="row align-items-start w-100 d-flex flex-column flex-md-row fadeInUp_anim">
 		  <div class="col-12 col-md-6 col-lg-6 headline_col">
@@ -31,7 +31,7 @@ const baseURL = import.meta.env.BASE_URL;
 						<p class="weather_card_date position-absolute"></p>
 					</div>
 					<div class="col-md-4 weather_card_icon_col d-sm-flex">
-						<img id="weather_card_icon" src=`${baseURL}/images/weather-icons/cloud.png` class="img-fluid rounded-start" alt="weather icon">
+						<img id="weather_card_icon" src=`${baseURL}/images/weather-icons/cloud.png` class="img-fluid rounded-start anim_weather_icon" alt="weather icon">
 				  	</div>
 				  	<div class="col-md-8 d-flex align-items-center weather_card_details_col">
 						<div id="weather_card_details" class="card-body py-0">

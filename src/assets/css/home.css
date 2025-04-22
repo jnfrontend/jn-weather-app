@@ -5,3 +5,31 @@
 .navbar-nav .nav_home_link a:after {
     background-color: #fcd921;
 }
+
+@media (min-width: 992px) {
+    #headline br {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .container-fluid {
+        justify-content: center;
+    }
+    #headline h1 {
+        line-height: 2.5rem;
+        margin-bottom: 1.2em;
+    }
+    #headline h1 span {
+        font-size: calc(1.425rem + 1vw);
+        text-transform: capitalize;
+        font-weight: 500;
+    }
+    #headline p em span {
+        display: none;
+    }
+    .cta_container {
+        justify-content: center;
+        display: flex;
+    }
+}

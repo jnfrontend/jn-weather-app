@@ -63,15 +63,12 @@
 }
 
 #weather_card {
-    /* max-width: 540px; */
     width: 100%;
     padding-right: 0;
-    /* background-color: #88a0f9; */
     padding: 20px;
     border-radius: 20px;
     border: 4px solid #d9f0ff !important;
     background-image: linear-gradient(to left, #d9f0ff, #d1eafe, #cae3fc, #c5dcfb, #c1d5f9);
-    /* box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03), 0 4px 10px rgba(0, 0, 0, 0.02), 0 5px 30px rgba(0, 0, 0, 0.06); */
     box-shadow: 0 1px 4px #abcce045, 0 4px 10px #b2cfe14a, 0 5px 30px #a9cfe73d;
     outline: 1px solid #d0e2f194;
     text-shadow: 0.5px 1px 3px #7994c12e;
@@ -216,10 +213,6 @@ body[data-weather-card-state="active"] .temp::after {
         padding: 6px 12px 6px 13px;
         margin-bottom: 20px;
     }
-    /* .h-60vh {
-        height: auto;
-        min-height: auto;
-    } */
 }
 
 @media (max-width: 505px) {
@@ -512,5 +505,18 @@ body[data-weather-card-state=""] .noice_anim:after {
       -ms-transform: translate(-10%, 10%);
       -webkit-transform: translate(-10%, 10%);
       transform: translate(-10%, 10%);
+    }
+  }
+
+  body[data-weather-card-state=""] .anim_weather_icon {
+    animation: animWeatherIcon 1.35s alternate ease-in-out infinite;
+  }
+  
+  @keyframes animWeatherIcon {
+    0% {
+      transform: translate(0, -0.35em);
+    }
+    100% {
+      transform: translate(0, 0.35em);
     }
   }
