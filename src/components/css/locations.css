@@ -1,5 +1,4 @@
 #locations {
-    /* background-image: linear-gradient(to top, #eaeaeb, #ececed, #efeff0, #f2f2f3, transparent); */
     background-image: linear-gradient(to right, #f1f9ff, #edf7ff, #e9f6ff, #e5f4ff, #e1f2ff);
     color: black;
     position: absolute;
@@ -60,5 +59,11 @@ body.openLocations #locations {
     }
     #locations #locations_list li {
         margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    #locations .display-1 {
+        font-size: calc(1.625rem + 2.5vw);
     }
 }

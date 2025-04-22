@@ -20,6 +20,7 @@ hr {
 .h-60vh {
     height: 60vh;
     min-height: 600px;
+    transition: .5s ease .20s;
 }
 
 html, body {
@@ -100,14 +101,13 @@ nav .nav-link.active {
     font-weight: bold;
 }
 
-nav a.nav-link.active:after {
+nav a.nav-link:not(#locations_trigger).active:after {
     background-color: #fcd921;
 }
 
 nav .location-link svg {
     width: 26px;
 }
-
 
 section {
     position: relative;
@@ -125,7 +125,7 @@ section {
 }
 
 .cta_container .btn .arrow-icon {
-    transition: .25s ease 0.05;
+    transition: .25s ease 0.05s;
     background-image: url('/jn-weather-app/images/arrow-icon.svg');
     width: 24px;
     background-repeat: no-repeat;
@@ -172,7 +172,7 @@ footer a span:before {
 }
 
 footer a span:hover:before {
-    background-color: 1px solid black;
+    background-color: black;
     transition: .35s ease .2s;
     width: 100%;
     opacity: 1;
@@ -299,6 +299,16 @@ input[type=search]::-webkit-search-decoration {
     .h-60vh {
         height: auto;
         min-height: 80vh;
+    }
+    #headline,
+    footer .row .col {
+        text-align: center;
+    }
+    footer .row .col a {
+        margin: 0 auto;
+    }
+    .openLocations .h-60vh {
+        min-height: 100vh;
     }
 }
 
